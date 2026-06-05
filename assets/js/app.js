@@ -1,4 +1,5 @@
 const urlApiGeneral = "https://thesimpsonsapi.com/api/characters";
+const urlDetalleUnPersonaje = "https://thesimpsonsapi.com/api/characters/";
 const urlImagePersonaje = "https://cdn.thesimpsonsapi.com/500/character/";
 let personajes = [];
 
@@ -10,6 +11,17 @@ const obtenerPersonajes = async () => {
     // console.log(data.results);
 
     return data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const obtenerUnPersonaje = async (idPersonaje) => {
+  try {
+    const response = await fetch(`${urlDetalleUnPersonaje}${idPersonaje}`);
+    const data = await response.json();
+
+    return data[0];
   } catch (error) {
     console.log(error);
   }
@@ -41,5 +53,19 @@ const cargarPersonajes = async () => {
           </div>`;
   });
 };
+
+// obtenerPersonajes();
+
+const verDetalle = async (id) => {
+  const personaje = await obtenerUnPersonaje(id);
+  //   console.log(personaje);
+};
+
+contenedor.addEventListener("click", (e) => {
+  //   console.log(e.target);
+  if (e.target.classList.contains("btnVerDetalle")) {
+    // console.log("click en el boton");
+  }
+});
 
 cargarPersonajes();
