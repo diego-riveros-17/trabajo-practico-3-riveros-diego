@@ -31,15 +31,7 @@ const obtenerUnPersonaje = async (idPersonaje) => {
 
 const contenedor = document.querySelector("#cardPersonaje");
 const modalDetalle = new bootstrap.Modal("#modalDetalle");
-const nombrePj = document.querySelector("#nombrePj");
-const imgPj = document.querySelector("#imgPj");
-const edadPj = document.querySelector("#edadPj");
-const fechaNacPj = document.querySelector("#fechaNacPj");
-const generoPj = document.querySelector("#generoPj");
-const ocupacionPj = document.querySelector("#ocupacionPj");
-const estadoPj = document.querySelector("#estadoPj");
-// const descripcionPj = document.querySelector("#descripcionPj");
-const frasesPj = document.querySelector("#frasesPj");
+const detallesPj = document.querySelector("#detallesPj");
 
 const cargarPersonajes = async () => {
   personajes = await obtenerPersonajes();
@@ -78,13 +70,14 @@ contenedor.addEventListener("click", async (e) => {
     const personaje = await obtenerUnPersonaje(idPersonaje);
     // console.log(personaje);
     imgPj.setAttribute("src", `${urlImagePersonaje}${idPersonaje}.webp`);
-    nombrePj.textContent = personaje.name;
-    edadPj.innerHTML = `<b>Edad: </b><span>${personaje.age}</span><br>`;
-    fechaNacPj.innerHTML = `<b>Fecha de Nacimiento: </b><span>${personaje.birthdate}</span><br>`;
-    generoPj.innerHTML = `<b>Género: </b><span>${personaje.gender}</span>`;
-    ocupacionPj.innerHTML = `<b>Ocupación: </b><span>${personaje.occupation}</span><br>`;
-    estadoPj.innerHTML = `<b>Estado: </b><span>${personaje.status}</span><br>`;
-    frasesPj.innerHTML = `<b>Frase: </b><span>${personaje.phrases[0]}</span><br>`;
+
+    detallesPj.innerHTML = `<h5 class="card-title text-center" >${personaje.name}</h5>
+                    <p class="card-text" ><b>Edad: </b><span>${personaje.age}</span></p>
+                    <p class="card-text" ><b>Fecha de Nacimiento: </b><span>${personaje.birthdate}</span></p>
+                    <p class="card-text" ><b>Género: </b><span>${personaje.gender}</span></p>
+                    <p class="card-text" ><b>Ocupación: </b><span>${personaje.occupation}</span></p>
+                    <p class="card-text" ><b>Estado: </b><span>${personaje.status}</span></p>
+                    <p class="card-text" ><b>Frase: </b><span>${personaje.phrases[0]}</span><br></p>`;
 
     modalDetalle.show();
   }
