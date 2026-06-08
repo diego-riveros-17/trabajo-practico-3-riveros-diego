@@ -16,50 +16,53 @@
     />
   </head>
   <body class="d-flex flex-column vh-100">
+    <!-- encabezado -->
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-warning">
-        <div class="container-fluid">
-          <a class="navbar-brand text-black" href="#">Los Simsomps</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <form class="d-flex py-2" role="search">
-              <input
-                class="form-control text-black me-2"
-                type="search"
-                placeholder="Buscar"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-dark" type="submit">Buscar</button>
-            </form>
-          </div>
+        <div class="container-fluid d -flex justify-content-center">
+          <h1>Los Simpson</h1>
         </div>
       </nav>
     </header>
 
+    <!-- contenido principal -->
     <main>
+      <!-- seccion buscador -->
       <section class="py-5">
-        <div class="row py-5" id="cardPersonaje"></div>
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <label for="buscarPj" class="form-label">Buscar personaje</label>
+              <input
+                class="form-control"
+                list="opciones"
+                id="buscarPj"
+                placeholder="Escribir el nombre..."
+              />
+              <datalist id="opciones">
+                <option value="Homer"></option>
+                <option value="Marge"></option>
+                <option value="Etc.."></option>
+              </datalist>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- seccion personajes -->
+      <section>
+        <div class="row pb-5" id="cardPersonaje"></div>
       </section>
     </main>
 
+    <!-- pie de pagina -->
     <footer
       class="d-flex justify-content-center align-items-center py-3 border-top mt-auto bg-warning"
     >
-      <span class="mb-3 text-dark">&copy; 2026 Los Simsomps</span>
+      <span class="mb-3 text-dark">&copy; 2026 Los Simpson</span>
     </footer>
 
     <!-- modal -->
-
     <div class="modal fade" id="modalDetalle">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -81,7 +84,7 @@
                       class="card-img-top"
                       alt="..."
                       id="imgPj"
-                      style="width: 18rem"
+                      style="width: 15rem"
                     />
                   </div>
                   <div class="card-body" id="detallesPj"></div>
@@ -92,7 +95,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-primary"
               data-bs-dismiss="modal"
             >
               Cerrar
