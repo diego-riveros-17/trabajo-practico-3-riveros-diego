@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es" class="vh-100">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +10,101 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
   </head>
-  <body>
+  <body class="d-flex flex-column vh-100">
+    <!-- encabezado -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-warning">
+        <div class="container-fluid d -flex justify-content-center">
+          <h1>Los Simpson</h1>
+        </div>
+      </nav>
+    </header>
+
+    <!-- contenido principal -->
+    <main>
+      <!-- seccion buscador -->
+      <section class="py-5">
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <label for="buscarPj" class="form-label">Buscar personaje</label>
+              <input
+                class="form-control"
+                list="opciones"
+                id="buscarPj"
+                placeholder="Escribir el nombre..."
+              />
+              <datalist id="opciones">
+                <option value="Homer"></option>
+                <option value="Marge"></option>
+                <option value="Etc.."></option>
+              </datalist>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- seccion personajes -->
+      <section>
+        <div class="row pb-5" id="cardPersonaje"></div>
+      </section>
+    </main>
+
+    <!-- pie de pagina -->
+    <footer
+      class="d-flex justify-content-center align-items-center py-3 border-top mt-auto bg-warning"
+    >
+      <span class="mb-3 text-dark">&copy; 2026 Los Simpson</span>
+    </footer>
+
+    <!-- modal -->
+    <div class="modal fade" id="modalDetalle">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col">
+                <div class="card border border-0">
+                  <div class="text-center">
+                    <img
+                      src=""
+                      class="card-img-top"
+                      alt="..."
+                      id="imgPj"
+                      style="width: 15rem"
+                    />
+                  </div>
+                  <div class="card-body" id="detallesPj"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
