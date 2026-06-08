@@ -72,21 +72,18 @@ cargarPersonajes();
 
 const buscarPj = document.querySelector("#buscarPj");
 
-buscarPj.addEventListener("input", async () => {
+buscarPj.addEventListener("input", () => {
   //console.log(buscarPj.value);
 
   const nombrePj = buscarPj.value.toUpperCase();
 
-  const PjFiltrado = personajes.find(({ id, name }) => {
+  const PjFiltrado = personajes.filter(({ id, name }) => {
     return name.toUpperCase().includes(nombrePj);
   });
 
-  //console.log(PjFiltrado.id);
+  // console.log(PjFiltrado);
 
-  if (PjFiltrado != "") {
-    const personaje = await obtenerUnPersonaje(PjFiltrado.id);
-    pintarCard([PjFiltrado]);
-  } else {
+  if (!PjFiltrado) {
     contenedor.innerHTML = `<div class="row justify-content-center">
                               <div class="col-4">
                                   <div class="alert alert-danger" role="alert">
@@ -94,6 +91,8 @@ buscarPj.addEventListener("input", async () => {
                                   </div>
                                </div>
                              </div>`;
+  } else {
+    pintarCard(PjFiltrado);
   }
 });
 
