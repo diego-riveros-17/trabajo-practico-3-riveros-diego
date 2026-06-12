@@ -81,9 +81,9 @@ buscarPj.addEventListener("input", () => {
     return name.toUpperCase().includes(nombrePj);
   });
 
-  // console.log(PjFiltrado);
+  // console.log(PjFiltrado.length);
 
-  if (!PjFiltrado) {
+  if (PjFiltrado.length === 0) {
     contenedor.innerHTML = `<div class="row justify-content-center">
                               <div class="col-4">
                                   <div class="alert alert-danger" role="alert">
